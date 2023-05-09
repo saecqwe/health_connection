@@ -1,0 +1,6 @@
+package com.health_connections.app
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}

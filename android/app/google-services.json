@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "568354083446",
+    "project_id": "health-connections-9c27f",
+    "storage_bucket": "health-connections-9c27f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:568354083446:android:a66e1ce7529e8443414557",
+        "android_client_info": {
+          "package_name": "com.health_connections.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "568354083446-nh07uqt79e1uli369jjk8f3bfnaj62ca.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.health_connections.app",
+            "certificate_hash": "656a33626e3922700ed500469e5359dbc5bccdcf"
+          }
+        },
+        {
+          "client_id": "568354083446-4n5jdg164ournl3ipo5knmpav7tumnlo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFANZpZBhU7f4Q3C9ZZp1UDP7kNrClfCY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "568354083446-4n5jdg164ournl3ipo5knmpav7tumnlo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
