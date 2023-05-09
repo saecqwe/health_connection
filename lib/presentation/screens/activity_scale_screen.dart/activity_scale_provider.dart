@@ -23,6 +23,7 @@ class ActivityScaleProvider extends ChangeNotifier {
       backPage();
     }
     notifyListeners();
+    print("Notified Listners");
   }
 
   uploadTasksToActivites() async {

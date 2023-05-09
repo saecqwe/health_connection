@@ -93,6 +93,8 @@ Future<void> initialFirebsaDependencies() async {
             messagingSenderId: "568354083446",
             appId: "1:568354083446:web:81600542ffbaa124414557",
             measurementId: "G-MTY4R423XM"));
+
+            
   } else {
     await Firebase.initializeApp();
   }

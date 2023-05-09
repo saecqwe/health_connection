@@ -378,6 +378,8 @@ addActivityItem({required ActivityScaleProvider ref, required String name , requ
                     ElevatedButton(
                         onPressed: () {
                           ref.addDataToActivityList(name: name , activityIndex: activityIndex);
+                          print("called the function");
+                          
                         },
                         style: ButtonStyle(
                             elevation: MaterialStateProperty.all(3),
