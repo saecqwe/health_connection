@@ -41,6 +41,7 @@ class LoginProvider extends ChangeNotifier {
         var user = FirebaseAuth.instance.currentUser;
         await user?.reload();
         if (user?.emailVerified == true) {
+          print("matching this email ${data['email']}");
           var userResp =
               await DB.getUser.where('email', isEqualTo: data['email']).get();
 
@@ -118,9 +119,12 @@ class LoginProvider extends ChangeNotifier {
           backgroundColor: AppColors.appColorDark,
         ));
       }
-    } catch (e) {
-      Loader.stop();
-    }
+      else
+      {
+        print(e.toString());
+      }
+     
+    } 
   }
 
   String selectedCountryCode = "+2";

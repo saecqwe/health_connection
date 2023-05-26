@@ -31,7 +31,7 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                UIHelper.verticalSpace(120),
+                UIHelper.verticalSpace(60),
                 Center(
                   child: Image.asset(
                     appIcon,
@@ -49,7 +49,7 @@ class LoginScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                 ),
-                UIHelper.verticalSpace(120),
+                UIHelper.verticalSpace(60),
                 FormBuilderTextField(
                   name: 'email',
                   autofillHints: const [AutofillHints.email],
@@ -145,7 +145,7 @@ class LoginScreen extends StatelessWidget {
                             fontWeight: FontWeight.bold),
                       )),
                 ),
-                UIHelper.verticalSpace(120),
+                UIHelper.verticalSpace(60),
                 Center(
                   child: ElevatedButton(
                       onPressed: () async {
@@ -198,6 +198,28 @@ class LoginScreen extends StatelessWidget {
                         ],
                       )),
                 ),
+                UIHelper.verticalSpace(20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      "Don't have an account?",
+                      style: TextStyle(
+                          fontWeight: FontWeight.normal,
+                          color: AppColors.blackColor,
+                          fontSize: 16),
+                    ),
+                    TextButton(
+                        child: const Text(" Create Account",
+                            style: TextStyle(
+                                fontWeight: FontWeight.normal,
+                                color: AppColors.blueColor,
+                                fontSize: 16)),
+                        onPressed: () {
+                          Navigator.pushNamed(context, Routes.signup);
+                        })
+                  ],
+                ),
                 UIHelper.verticalSpaceExtraLarge(),
                 Row(
                   children: const [
@@ -242,27 +264,6 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 UIHelper.verticalSpaceExtraLarge(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      "Don't have an account?",
-                      style: TextStyle(
-                          fontWeight: FontWeight.normal,
-                          color: AppColors.blackColor,
-                          fontSize: 16),
-                    ),
-                    TextButton(
-                        child: const Text(" Sign Up",
-                            style: TextStyle(
-                                fontWeight: FontWeight.normal,
-                                color: AppColors.blueColor,
-                                fontSize: 16)),
-                        onPressed: () {
-                          Navigator.pushNamed(context, Routes.signup);
-                        })
-                  ],
-                ),
               ],
             ).paddingAll(20),
           ),

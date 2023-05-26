@@ -83,22 +83,31 @@ class ActivityScaleScreen extends StatelessWidget {
                             ],
                           ),
                           UIHelper.verticalSpaceLarge(),
-                          MarkScale(
-                            onMarkSelected: (p0) {
-                              if (ref.userActivities.any((element) =>
-                                  element['activityId'] == index)) {
-                                ref.userActivities.firstWhere((element) =>
-                                    element['activityId'] ==
-                                    index)['score'] = p0;
+                          FutureBuilder(
+                            future: ref.getActivityScore(index),
+                            builder: (context, snapshot2) {
+                              if (!snapshot2.hasData) {
+                                return Text("...Loading!!!");
                               } else {
-                                ref.userActivities
-                                    .add({"activityId": index, "score": p0});
+                                return MarkScale(
+                                  selectedMark: snapshot2.data,
+                                  onMarkSelected: (p0) {
+                                    if (ref.userActivities.any((element) =>
+                                        element['activityId'] == index)) {
+                                      ref.userActivities.firstWhere((element) =>
+                                          element['activityId'] ==
+                                          index)['score'] = p0;
+                                    } else {
+                                      ref.userActivities.add(
+                                          {"activityId": index, "score": p0});
+                                    }
+
+                                    ref.activities[index]['score'] = p0;
+                                  },
+                                );
                               }
-
-
-                              ref.activities[index]['score'] = p0;
                             },
-                          ),
+                          )
                         ],
                       ).paddingAll(20));
                     },
@@ -197,8 +206,9 @@ class ActivityScaleScreen extends StatelessWidget {
 
 class MarkScale extends StatefulWidget {
   final Function(int) onMarkSelected;
+  final int? selectedMark;
 
-  const MarkScale({super.key, required this.onMarkSelected});
+  const MarkScale({super.key, required this.onMarkSelected, this.selectedMark});
 
   @override
   _MarkScaleState createState() => _MarkScaleState();
@@ -207,6 +217,11 @@ class MarkScale extends StatefulWidget {
 class _MarkScaleState extends State<MarkScale> {
   int _selectedMark = 0;
 
+@override
+  void initState() {
+    _selectedMark = widget.selectedMark ?? 0;
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Row(
